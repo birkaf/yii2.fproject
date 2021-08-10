@@ -102,22 +102,8 @@ $config = [
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => 'bookapi',
-                    'tokens' => [
-                        '{id}' => '<id:\\w+>',
-                    ],
                     'extraPatterns' => [
                         'GET list' => 'list',
-                    ],
-                    'patterns' => [
-                        'PUT,PATCH {id}' => 'update',
-                        'DELETE {id}' => 'delete',
-                        'GET,HEAD {id}' => 'view',
-                        'GET,HEAD {key}' => 'view',
-                        'POST' => 'create',
-                        'GET,HEAD' => 'index',
-                        '{id}' => 'options',
-                        'OPTIONS' => 'options',
-                        'PUT,PATCH {key}' => 'update',
                     ],
 //                    'tokens' => [
 //                        '{id}' => '<id:\\d[\\d,]*>',
