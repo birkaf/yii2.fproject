@@ -45,7 +45,7 @@ class BookController extends Controller
         if($book->load(\Yii::$app->request->post())){
             $transaction = \Yii::$app->getDb()->beginTransaction();
             if(!$book->save() || !$bookauthor->updateBookAuthors(\Yii::$app->request->post('BookAuthor')['id_author'], $id)){
-                \Yii::$app->session->setFlash('error','Ошибка при добавлении книги');
+                \Yii::$app->session->setFlash('error','Ошибка при обновлении книги');
                 $transaction->rollBack();
             }else{
                 $transaction->commit();

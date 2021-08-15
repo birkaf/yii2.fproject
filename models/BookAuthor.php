@@ -21,14 +21,24 @@ class BookAuthor extends ActiveRecord
     {
         return $this->hasOne(Author::class,['id' => 'id_author']);
     }
+    public function updateBookAuthorsFromPost($authors, $id_book)
+    {
+        $this->deleteAll(['id_book' => $id_book]);
+        $authors = explode(',',$authors);
+        foreach ($authors as $id_author)
+        {
+            $this->id = null;
+            $this->isNewRecord = true;
+            $this->id_book = $id_book;
+            $this->id_author = $id_author;
+            if(!$this->save()){
+                return false;
+            }
+        }
+        return true;
+    }
     public function updateBookAuthors($authors, $id_book)
     {
-//        $this->findAll($authors)
-        //$bookauthor = BookAuthor::find()->where(['id_book' => $id_book])->all();
-//        echo '<pre>';
-//        print_r($bookauthor);
-//        echo '</pre>';
-//        die();
         $this->deleteAll(['id_book' => $id_book]);
         foreach ($authors as $id_author){
             $this->id = null;
