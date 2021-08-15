@@ -15,12 +15,12 @@ class BookApiController extends ActiveController
         \Yii::$app->response->format = Response::FORMAT_JSON;
         return  Book::find()->all();
     }
-    public function actionView($id)
-    {
-        //http://yii2.fproject/book-api/list?expand=author
-        //http://yii2.fproject/book-api/list
-        var_dump($_GET);
-        \Yii::$app->response->format = Response::FORMAT_JSON;
-        return  Book::find()->all();
-    }
+//    public function actionView($id)
+//    {
+//        //http://yii2.fproject/book-api/list?expand=author
+//        //http://yii2.fproject/book-api/list
+//        var_dump($_GET);
+//        \Yii::$app->response->format = Response::FORMAT_JSON;
+//        return  Book::find()->all();
+//    }
 }
